@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8" />
@@ -15,6 +14,8 @@
 
   *{box-sizing:border-box;margin:0;padding:0}
 
+  html, body { height: 100%; }
+
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -22,7 +23,14 @@
     color: var(--text);
     position: relative;
     min-height:100vh;
+
+    /* FIX responsive: evita scroll orizzontale e zoom testo strano su mobile */
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
+
+  /* FIX responsive: immagini sempre dentro lo schermo, senza toccare HTML */
+  img { max-width: 100%; height: auto; }
 
   body::before{
     content: "";
@@ -36,6 +44,11 @@
       url("https://i.postimg.cc/nLyGVZ2b/Whats-App-Image-2026-01-22-at-14-06-48.jpg") no-repeat center center fixed;
     background-size: contain;
     background-position: center center;
+  }
+
+  /* FIX: su molti telefoni (Safari/Chrome) il fixed sul background può laggare */
+  @media (max-width: 900px){
+    body::before{ background-attachment: scroll; }
   }
 
   .container {
@@ -75,6 +88,9 @@
     transition: 0.25s;
     box-shadow: 0 6px 14px rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.06);
+
+    /* FIX: tocchi più affidabili su mobile */
+    touch-action: manipulation;
   }
   .buttons button:hover{
     background: rgba(255,255,255,0.16);
@@ -97,6 +113,9 @@
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.45);
     border: 1px solid rgba(255,255,255,0.04);
+
+    /* FIX: evita overflow strani in alcuni casi */
+    max-width: 100%;
   }
   .section.active { display:block }
   .section h2{margin-bottom:8px}
@@ -116,6 +135,7 @@
     cursor:pointer;
     transition: transform .25s, box-shadow .25s, border-color .25s;
     border: 3px solid rgba(255,255,255,0.12);
+    display: block; /* FIX: elimina spaziature strane inline */
   }
   .gallery img:hover{
     transform: scale(1.04);
@@ -136,46 +156,43 @@
     font-size: 15px;
     transition: .2s;
     box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    touch-action: manipulation;
   }
   .back:hover{ background: rgba(255,255,255,0.16) }
 
-/* Modal zoom aggiornato */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.88);
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+  /* Modal zoom aggiornato */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.88);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 
-.modal img {
-  max-width: 92%;
-  max-height: 92%;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-  transition: transform 0.3s ease;
-  touch-action: pinch-zoom; /* abilita pinch su mobile */
-  cursor: grab;
-}
+    /* FIX: più comodo su mobile */
+    padding: 10px;
+  }
 
-.modal img:active {
-  cursor: grabbing;
-}
+  .modal img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease;
+    touch-action: pinch-zoom; /* abilita pinch su mobile */
+    cursor: grab;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 
-.modal .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-}
+  .modal img:active {
+    cursor: grabbing;
+  }
 
   .modal .close {
     position: absolute;
@@ -197,6 +214,13 @@
       font-size: 14px;
       padding: 12px 10px;
     }
+    .container{ padding: 16px; }
+    .modal .close { top: 14px; right: 14px; }
+  }
+
+  /* Se l’utente ha “riduci movimento” attivo */
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; scroll-behavior: auto !important; }
   }
 </style>
 </head>
@@ -334,7 +358,7 @@
     <p>Mare e storia.</p>
     <div class="gallery">
       <img src="https://i.postimg.cc/Y2xkFzVW/Whats-App-Image-2026-01-22-at-14-46-09.jpg" alt="">
-      <img src="https://i.postimg.cc/0ybvQqkq/Whats-App-Image-2026-01-26-at-09-46-19.jpg" 
+      <img src="https://i.postimg.cc/0ybvQqkq/Whats-App-Image-2026-01-26-at-09-46-19.jpg">
       <img src="https://i.postimg.cc/0ybvQqky/Whats-App-Image-2026-01-26-at-09-46-20.jpg" alt="">
       <img src="https://i.postimg.cc/4xmGdTfX/Whats-App-Image-2026-01-26-at-09-46-20-(1).jpg" alt="">
       <img src="https://i.postimg.cc/g2npJPzJ/Whats-App-Image-2026-01-26-at-09-46-21.jpg" alt="">
@@ -403,12 +427,23 @@ document.addEventListener('click', (e) => {
     originX = 0;
     originY = 0;
     modalImg.style.transform = `scale(${scale}) translate(0px,0px)`;
+
+    /* FIX mobile: evita scroll dietro mentre il modal è aperto */
+    document.body.style.overflow = 'hidden';
   }
 });
 
 // Chiudi modal
-closeModal.addEventListener('click', () => modal.style.display = 'none');
-modal.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+});
+modal.addEventListener('click', (e) => {
+  if(e.target === modal){
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+});
 
 // Zoom con mouse wheel su PC
 modalImg.addEventListener('wheel', (e) => {
@@ -416,7 +451,7 @@ modalImg.addEventListener('wheel', (e) => {
   const delta = e.deltaY > 0 ? -0.1 : 0.1;
   scale = Math.min(Math.max(1, scale + delta), 5);
   modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
-});
+}, { passive: false });
 
 // Drag immagine
 modalImg.addEventListener('mousedown', (e) => {
@@ -442,7 +477,7 @@ modalImg.addEventListener('touchstart', (e) => {
       e.touches[0].clientY - e.touches[1].clientY
     );
   }
-});
+}, { passive: true });
 
 modalImg.addEventListener('touchmove', (e) => {
   if(e.touches.length === 2){
@@ -455,7 +490,7 @@ modalImg.addEventListener('touchmove', (e) => {
     modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
     initialDistance = newDistance;
   }
-});
+}, { passive: true });
 
 
   // Facoltativo: apri prima sezione di default
@@ -463,4 +498,3 @@ modalImg.addEventListener('touchmove', (e) => {
 </script>
 </body>
 </html>
-
