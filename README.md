@@ -1,210 +1,224 @@
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>I miei Viaggi</title>
+  <meta charset="UTF-8" />
+  <!-- Viewport “alla EdilGarden”: apertura sempre “giusta”, niente zoom iniziale strano -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>I miei Viaggi</title>
 
-<style>
-  :root{
-    --accent: #38bdf8;
-    --text: #ffffff;
-    --muted: rgba(255,255,255,0.82);
-    --panel: rgba(0,0,0,0.28);
-    --panel-strong: rgba(0,0,0,0.40);
-    --page-gray: #1f2937;
-  }
+  <style>
+    :root{
+      --accent: #38bdf8;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.82);
+      --panel: rgba(0,0,0,0.28);
+      --page-gray: #1f2937;
+    }
 
-  *{box-sizing:border-box;margin:0;padding:0}
+    *{box-sizing:border-box;margin:0;padding:0}
 
-  html,body{height:100%}
+    html,body{height:100%}
 
-  body{
-    font-family: Arial, sans-serif;
-    background-color: var(--page-gray);
-    color: var(--text);
-    min-height:100vh;
-    overflow-x:hidden;
-  }
+    /* evita “auto zoom” del testo nei browser interni (WhatsApp/IG ecc.) */
+    html{
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
 
-  /* Sfondo: come nel tuo originale (visibile) */
-  body::before{
-    content:"";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(rgba(0,0,0,0.66), rgba(0,0,0,0.66)),
-      url("https://i.postimg.cc/nLyGVZ2b/Whats-App-Image-2026-01-22-at-14-06-48.jpg") no-repeat center center fixed;
-    background-size: contain;   /* torna come il tuo */
-    background-position: center center;
-  }
+    body{
+      font-family: Arial, sans-serif;
+      background-color: var(--page-gray);
+      color: var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+      font-size: 18px; /* più grande su PC */
+    }
 
-  .container{
-    max-width: 1200px;
-    margin: auto;
-    padding: 22px;
-    position: relative;
-    z-index: 1;
-  }
+    /* Sfondo (come tuo originale, ben visibile) */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(0,0,0,0.66), rgba(0,0,0,0.66)),
+        url("https://i.postimg.cc/nLyGVZ2b/Whats-App-Image-2026-01-22-at-14-06-48.jpg") no-repeat center center fixed;
+      background-size: contain;
+      background-position: center center;
+    }
 
-  header{
-    text-align:center;
-    margin-bottom:16px;
-  }
-  header h1{
-    font-size: 32px;
-    letter-spacing: 1.5px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.75);
-  }
-  header p{
-    color: var(--muted);
-    margin-top: 8px;
-  }
+    /* Su PC niente “cornice piccola”: più largo e più pieno */
+    .container{
+      width: min(1480px, 96vw);
+      margin: auto;
+      padding: 28px;
+      position: relative;
+      z-index: 1;
+    }
 
-  /* Menu: rimane scuro e “glass” come il tuo */
-  .buttons{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-    margin: 18px 0 26px;
-  }
+    header{
+      text-align:center;
+      margin-bottom:16px;
+    }
+    header h1{
+      font-size: 40px;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.75);
+    }
+    header p{
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 1rem;
+    }
 
-  .buttons button{
-    padding: 12px 16px;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.08);
-    color: var(--text);
-    cursor: pointer;
-    font-size: 15px;
-    transition: 0.22s;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-  }
+    /* Menu */
+    .buttons{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 18px 0 26px;
+    }
+    .buttons button{
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.22s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    }
+    .buttons button:hover{
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .buttons button.active{
+      background: linear-gradient(135deg,var(--accent),#818cf8);
+      color:#020617;
+      border:none;
+      box-shadow:0 10px 30px rgba(56,189,248,0.18);
+    }
 
-  .buttons button:hover{
-    background: rgba(255,255,255,0.14);
-    transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.14);
-  }
+    /* Sezioni */
+    .section{
+      display:none;
+      margin-top: 12px;
+      padding: 18px;
+      background: var(--panel);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+    }
+    .section.active{display:block}
+    .section h2{margin-bottom:8px;font-size:1.35rem}
+    .section p{color:var(--muted);margin-bottom:14px;font-size:1rem}
 
-  .buttons button.active{
-    background: linear-gradient(135deg,var(--accent),#818cf8);
-    color:#020617;
-    border:none;
-    box-shadow:0 10px 30px rgba(56,189,248,0.18);
-  }
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .gallery img{
+      width:100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform .22s, box-shadow .22s, border-color .22s;
+      border: 3px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+    .gallery img:hover{
+      transform: scale(1.03);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.60);
+      border-color: rgba(255,255,255,0.28);
+    }
 
-  /* Sezioni: come il tuo, ma un filo più leggibile */
-  .section{
-    display:none;
-    margin-top: 12px;
-    padding: 18px;
-    background: var(--panel);
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-    border: 1px solid rgba(255,255,255,0.05);
-    backdrop-filter: blur(4px);
-  }
-  .section.active{display:block}
-  .section h2{margin-bottom:8px}
-  .section p{color:var(--muted);margin-bottom:14px}
+    .back{
+      display:inline-block;
+      margin: 18px auto 0;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: .2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    }
+    .back:hover{ background: rgba(255,255,255,0.14); }
 
-  /* Gallery: uguale idea, con altezze più “consistenti” */
-  .gallery{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-  }
-  .gallery img{
-    width:100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform .22s, box-shadow .22s, border-color .22s;
-    border: 3px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.06);
-  }
-  .gallery img:hover{
-    transform: scale(1.03);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.60);
-    border-color: rgba(255,255,255,0.28);
-  }
+    /* MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.88);
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      padding: 14px;
+    }
+    .modal.open{ display:flex; }
 
-  .back{
-    display:inline-block;
-    margin: 18px auto 0;
-    padding: 10px 18px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.08);
-    color: var(--text);
-    border: 1px solid rgba(255,255,255,0.08);
-    cursor: pointer;
-    font-size: 15px;
-    transition: .2s;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-  }
-  .back:hover{ background: rgba(255,255,255,0.14); }
+    .modal img{
+      max-width: 92%;
+      max-height: 92%;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.70);
+      transition: transform 0.2s ease;
+      touch-action: pinch-zoom;
+      cursor: grab;
+      user-select:none;
+      -webkit-user-drag:none;
+      transform: translate3d(0,0,0) scale(1);
+    }
+    .modal img:active{ cursor: grabbing; }
 
-  /* MODAL */
-  .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index: 1000;
-    background: rgba(0,0,0,0.88);
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    padding: 14px;
-  }
-  .modal.open{ display:flex; }
+    .modal .close{
+      position:absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 34px;
+      color:#fff;
+      cursor:pointer;
+      padding: 6px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      user-select:none;
+    }
 
-  .modal img{
-    max-width: 92%;
-    max-height: 92%;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.70);
-    transition: transform 0.2s ease;
-    touch-action: pinch-zoom;
-    cursor: grab;
-    user-select:none;
-    -webkit-user-drag:none;
-  }
-  .modal img:active{ cursor: grabbing; }
+    /* Tablet */
+    @media (max-width: 900px){
+      body{ font-size: 18px; }
+      header h1{ font-size: 32px; }
+      .gallery img{ height: 200px; }
+      .buttons{ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      .gallery{ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    }
 
-  .modal .close{
-    position:absolute;
-    top: 16px;
-    right: 18px;
-    font-size: 34px;
-    color:#fff;
-    cursor:pointer;
-    padding: 6px 12px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.14);
-    user-select:none;
-  }
+    /* Telefono: leggibile e “giusto” */
+    @media (max-width: 600px){
+      body{ font-size: 18px; }
+      .container{ padding: 16px; width: 96vw; }
+      header h1{ font-size: 28px; }
+      .buttons button{ font-size: 1rem; padding: 12px 10px; }
+      .gallery img{ height: 200px; }
+      .buttons{ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    }
 
-  /* Responsive come “sito vero” */
-  @media (max-width: 900px){
-    header h1{ font-size: 26px; }
-    .gallery img{ height: 180px; }
-    .buttons{ grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-  }
-  @media (max-width: 600px){
-    .container{ padding: 16px; }
-    header h1{ font-size: 24px; }
-    .buttons button{ font-size: 14px; padding: 12px 10px; }
-    .gallery img{ height: 200px; } /* su telefono meglio più alte */
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; scroll-behavior:auto !important; }
-  }
-</style>
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
 </head>
 
 <body>
