@@ -14,8 +14,6 @@
 
   *{box-sizing:border-box;margin:0;padding:0}
 
-  html, body { height: 100%; }
-
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -23,14 +21,7 @@
     color: var(--text);
     position: relative;
     min-height:100vh;
-    overflow-x:hidden;
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
   }
-
-  /* immagini sempre dentro lo schermo (non cambia contenuto) */
-  img{max-width:100%; height:auto; display:block}
 
   body::before{
     content: "";
@@ -65,17 +56,17 @@
   }
   header p{color:var(--muted);margin-top:8px}
 
-  /* MENU */
+  /* Bottoni / menu */
   .buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
     margin: 18px 0 26px;
   }
   .buttons button {
     padding: 12px 18px;
     border: none;
-    border-radius: 14px;
+    border-radius: 12px;
     background: rgba(255,255,255,0.08);
     color: var(--text);
     cursor: pointer;
@@ -83,9 +74,6 @@
     transition: 0.25s;
     box-shadow: 0 6px 14px rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.06);
-    touch-action: manipulation;
-    min-height: 48px;
-    line-height: 1.15;
   }
   .buttons button:hover{
     background: rgba(255,255,255,0.16);
@@ -99,7 +87,7 @@
     box-shadow:0 10px 30px rgba(56,189,248,0.18);
   }
 
-  /* SEZIONI */
+  /* Sezioni */
   .section {
     display: none;
     margin-top: 12px;
@@ -108,13 +96,12 @@
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.45);
     border: 1px solid rgba(255,255,255,0.04);
-    max-width: 100%;
   }
   .section.active { display:block }
   .section h2{margin-bottom:8px}
   .section p{color:var(--muted);margin-bottom:14px}
 
-  /* GALLERIA */
+  /* Griglia immagini */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -124,11 +111,10 @@
     width:100%;
     height:200px;
     object-fit:cover;
-    border-radius:12px;
+    border-radius:10px;
     cursor:pointer;
     transition: transform .25s, box-shadow .25s, border-color .25s;
     border: 3px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.02);
   }
   .gallery img:hover{
     transform: scale(1.04);
@@ -136,7 +122,7 @@
     border-color: rgba(255,255,255,0.28);
   }
 
-  /* BACK */
+  /* Bottone torna ai viaggi */
   .back {
     display: inline-block;
     margin: 18px auto 0;
@@ -149,11 +135,10 @@
     font-size: 15px;
     transition: .2s;
     box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-    touch-action: manipulation;
   }
   .back:hover{ background: rgba(255,255,255,0.16) }
 
-  /* MODAL */
+  /* Modal zoom aggiornato */
   .modal {
     display: none;
     position: fixed;
@@ -166,76 +151,100 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 12px;
   }
 
   .modal img {
-    max-width: 94%;
-    max-height: 94%;
+    max-width: 92%;
+    max-height: 92%;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.7);
     transition: transform 0.3s ease;
-    touch-action: pinch-zoom;
+    touch-action: pinch-zoom; /* abilita pinch su mobile */
     cursor: grab;
-    user-select: none;
-    -webkit-user-drag: none;
   }
 
-  .modal img:active { cursor: grabbing; }
+  .modal img:active {
+    cursor: grabbing;
+  }
 
   .modal .close {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 20px;
+    right: 30px;
     font-size: 30px;
     color: #fff;
     cursor: pointer;
-    line-height: 1;
-    padding: 6px 10px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.10);
   }
 
-  /* MOBILE: stile "come l'esempio" (card grandi + griglia più fitta) */
-  @media (max-width: 720px){
-    .container{ padding: 14px; }
+  .modal .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+  }
 
-    header h1{ font-size: 24px; }
-    header p{ font-size: 14px; }
+  /* Responsive tweaks */
+  @media (max-width:600px){
+    .gallery img{height:160px}
+    header h1{font-size:24px}
+    .buttons {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .buttons button {
+      font-size: 14px;
+      padding: 12px 10px;
+    }
+  }
 
-    /* sfondo più bello su telefono */
+  /* =========================================================
+     MOBILE "EDILGARDEN-LIKE" (SOLO OVERRIDE, POCA ROBA)
+     - menu a card grandi in colonna
+     - sfondo più “pieno” su telefono
+     - galleria più compatta (2 colonne)
+     ========================================================= */
+  @media (max-width: 760px){
+    body { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
     body::before{
       background-attachment: scroll;
       background-size: cover;
       background-position: center center;
     }
 
-    /* menu a colonna (card grandi) */
+    .container{ padding: 14px; }
+
+    header h1{ font-size: 24px; }
+    header p{ font-size: 14px; }
+
+    /* Menu come EdilGarden: una colonna, bottoni grandi tipo card */
     .buttons{
       grid-template-columns: 1fr;
       gap: 10px;
       margin: 14px 0 18px;
     }
     .buttons button{
+      width: 100%;
+      text-align: left;
+      padding: 16px 14px;
       font-size: 16px;
-      padding: 14px 14px;
       border-radius: 16px;
-      min-height: 54px;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      transform: none;
     }
+    .buttons button:hover{ transform: none; }
 
-    /* pannello più leggibile */
+    /* Sezione più leggibile */
     .section{
       padding: 14px;
       border-radius: 16px;
-      background: rgba(0,0,0,0.32);
+      background: rgba(0,0,0,0.34);
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    /* galleria: 2 colonne come card */
+    /* Galleria più simile: 2 colonne */
     .gallery{
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
@@ -244,16 +253,13 @@
       height: 140px;
       border-radius: 14px;
     }
+
+    .modal .close{ top: 14px; right: 14px; }
   }
 
-  /* telefoni piccoli: mantieni 2 colonne ma più basse */
   @media (max-width: 380px){
     .gallery img{ height: 120px; }
     .buttons button{ font-size: 15px; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ transition: none !important; scroll-behavior: auto !important; }
   }
 </style>
 </head>
@@ -391,6 +397,7 @@
     <p>Mare e storia.</p>
     <div class="gallery">
       <img src="https://i.postimg.cc/Y2xkFzVW/Whats-App-Image-2026-01-22-at-14-46-09.jpg" alt="">
+      <!-- FIX: qui mancava solo ">" -->
       <img src="https://i.postimg.cc/0ybvQqkq/Whats-App-Image-2026-01-26-at-09-46-19.jpg">
       <img src="https://i.postimg.cc/0ybvQqky/Whats-App-Image-2026-01-26-at-09-46-20.jpg" alt="">
       <img src="https://i.postimg.cc/4xmGdTfX/Whats-App-Image-2026-01-26-at-09-46-20-(1).jpg" alt="">
@@ -411,6 +418,7 @@
 </div>
 
 <script>
+  // MENU: mostra sezione corrispondente e scrolla
   const buttons = document.querySelectorAll('.buttons button');
   const sections = document.querySelectorAll('.section');
 
@@ -432,6 +440,7 @@
     });
   });
 
+  // Bottone torna ai viaggi
   const backButtons = document.querySelectorAll('.back');
   backButtons.forEach(back => {
     back.addEventListener('click', () => {
@@ -440,76 +449,81 @@
     });
   });
 
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modalImg');
-  const closeModal = document.getElementById('closeModal');
 
-  let scale = 1, originX = 0, originY = 0;
-  let startX = 0, startY = 0, isDragging = false;
+ // Modal zoom con drag e pinch
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const closeModal = document.getElementById('closeModal');
 
-  document.addEventListener('click', (e) => {
-    if(e.target.matches('.gallery img')){
-      modal.style.display = 'flex';
-      modalImg.src = e.target.src;
-      scale = 1;
-      originX = 0;
-      originY = 0;
-      modalImg.style.transform = `scale(${scale}) translate(0px,0px)`;
-      document.body.style.overflow = 'hidden';
-    }
-  });
+let scale = 1, originX = 0, originY = 0;
+let startX = 0, startY = 0, isDragging = false;
 
-  function closeIt(){
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
+// Apri modal
+document.addEventListener('click', (e) => {
+  if(e.target.matches('.gallery img')){
+    modal.style.display = 'flex';
+    modalImg.src = e.target.src;
+    scale = 1;
+    originX = 0;
+    originY = 0;
+    modalImg.style.transform = `scale(${scale}) translate(0px,0px)`;
   }
+});
 
-  closeModal.addEventListener('click', closeIt);
-  modal.addEventListener('click', (e) => { if(e.target === modal) closeIt(); });
+// Chiudi modal
+closeModal.addEventListener('click', () => modal.style.display = 'none');
+modal.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
 
-  modalImg.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+// Zoom con mouse wheel su PC
+modalImg.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const delta = e.deltaY > 0 ? -0.1 : 0.1;
+  scale = Math.min(Math.max(1, scale + delta), 5);
+  modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
+});
+
+// Drag immagine
+modalImg.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+  isDragging = true;
+  startX = e.clientX - originX;
+  startY = e.clientY - originY;
+});
+window.addEventListener('mouseup', () => isDragging = false);
+window.addEventListener('mousemove', (e) => {
+  if(!isDragging) return;
+  originX = e.clientX - startX;
+  originY = e.clientY - startY;
+  modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
+});
+
+// Zoom touch su mobile (pinch)
+let initialDistance = 0;
+modalImg.addEventListener('touchstart', (e) => {
+  if(e.touches.length === 2){
+    initialDistance = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+  }
+});
+
+modalImg.addEventListener('touchmove', (e) => {
+  if(e.touches.length === 2){
+    const newDistance = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    const delta = (newDistance - initialDistance) / 200;
     scale = Math.min(Math.max(1, scale + delta), 5);
     modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
-  }, { passive: false });
+    initialDistance = newDistance;
+  }
+});
 
-  modalImg.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    isDragging = true;
-    startX = e.clientX - originX;
-    startY = e.clientY - originY;
-  });
-  window.addEventListener('mouseup', () => isDragging = false);
-  window.addEventListener('mousemove', (e) => {
-    if(!isDragging) return;
-    originX = e.clientX - startX;
-    originY = e.clientY - startY;
-    modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
-  });
 
-  let initialDistance = 0;
-  modalImg.addEventListener('touchstart', (e) => {
-    if(e.touches.length === 2){
-      initialDistance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-    }
-  }, { passive: true });
-
-  modalImg.addEventListener('touchmove', (e) => {
-    if(e.touches.length === 2){
-      const newDistance = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
-      );
-      const delta = (newDistance - initialDistance) / 200;
-      scale = Math.min(Math.max(1, scale + delta), 5);
-      modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
-      initialDistance = newDistance;
-    }
-  }, { passive: true });
+  // Facoltativo: apri prima sezione di default
+  // buttons[0]?.click();
 </script>
 </body>
 </html>
