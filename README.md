@@ -138,43 +138,43 @@
   }
   .back:hover{ background: rgba(255,255,255,0.16) }
 
-  /* Modal zoom aggiornato */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.88);
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+/* Modal zoom aggiornato */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.88);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-  .modal img {
-    max-width: 92%;
-    max-height: 92%;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-    transition: transform 0.3s ease;
-    touch-action: pinch-zoom; /* abilita pinch su mobile */
-    cursor: grab;
-  }
+.modal img {
+  max-width: 92%;
+  max-height: 92%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+  touch-action: pinch-zoom; /* abilita pinch su mobile */
+  cursor: grab;
+}
 
-  .modal img:active {
-    cursor: grabbing;
-  }
+.modal img:active {
+  cursor: grabbing;
+}
 
-  .modal .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-  }
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
 
   .modal .close {
     position: absolute;
@@ -196,70 +196,6 @@
       font-size: 14px;
       padding: 12px 10px;
     }
-  }
-
-  /* =========================================================
-     MOBILE "EDILGARDEN-LIKE" (SOLO OVERRIDE, POCA ROBA)
-     - menu a card grandi in colonna
-     - sfondo più “pieno” su telefono
-     - galleria più compatta (2 colonne)
-     ========================================================= */
-  @media (max-width: 760px){
-    body { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
-    body::before{
-      background-attachment: scroll;
-      background-size: cover;
-      background-position: center center;
-    }
-
-    .container{ padding: 14px; }
-
-    header h1{ font-size: 24px; }
-    header p{ font-size: 14px; }
-
-    /* Menu come EdilGarden: una colonna, bottoni grandi tipo card */
-    .buttons{
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin: 14px 0 18px;
-    }
-    .buttons button{
-      width: 100%;
-      text-align: left;
-      padding: 16px 14px;
-      font-size: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
-      transform: none;
-    }
-    .buttons button:hover{ transform: none; }
-
-    /* Sezione più leggibile */
-    .section{
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.34);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    /* Galleria più simile: 2 colonne */
-    .gallery{
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .gallery img{
-      height: 140px;
-      border-radius: 14px;
-    }
-
-    .modal .close{ top: 14px; right: 14px; }
-  }
-
-  @media (max-width: 380px){
-    .gallery img{ height: 120px; }
-    .buttons button{ font-size: 15px; }
   }
 </style>
 </head>
@@ -397,8 +333,7 @@
     <p>Mare e storia.</p>
     <div class="gallery">
       <img src="https://i.postimg.cc/Y2xkFzVW/Whats-App-Image-2026-01-22-at-14-46-09.jpg" alt="">
-      <!-- FIX: qui mancava solo ">" -->
-      <img src="https://i.postimg.cc/0ybvQqkq/Whats-App-Image-2026-01-26-at-09-46-19.jpg">
+      <img src="https://i.postimg.cc/0ybvQqkq/Whats-App-Image-2026-01-26-at-09-46-19.jpg" 
       <img src="https://i.postimg.cc/0ybvQqky/Whats-App-Image-2026-01-26-at-09-46-20.jpg" alt="">
       <img src="https://i.postimg.cc/4xmGdTfX/Whats-App-Image-2026-01-26-at-09-46-20-(1).jpg" alt="">
       <img src="https://i.postimg.cc/g2npJPzJ/Whats-App-Image-2026-01-26-at-09-46-21.jpg" alt="">
@@ -527,3 +462,4 @@ modalImg.addEventListener('touchmove', (e) => {
 </script>
 </body>
 </html>
+
