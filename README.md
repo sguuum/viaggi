@@ -281,7 +281,11 @@
     <div id="croazia" class="section">
       <h2>Croazia</h2>
       <div class="gallery">
-       <img loading="lazy" src="https://i.postimg.cc/2jL3WnBY/Whats-App-Image-2026-02-02-at-08-23-05.jpg" alt="Croazia - 1">
+       <img loading="lazy" src="https://i.postimg.cc/Kvkbdp13/Whats-App-Image-2026-02-19-at-10-51-09.jpg" alt="Croazia - 1"> 
+       <img loading="lazy" src="https://i.postimg.cc/PfFhVn5s/Whats-App-Image-2026-02-19-at-10-51-09-(1).jpg" alt="Croazia - 2">
+       <img loading="lazy" src="https://i.postimg.cc/m2z40pPr/Whats-App-Image-2026-02-19-at-10-51-09-(2).jpg" alt="Croazia - 3">
+       <img loading="lazy" src="https://i.postimg.cc/hPznHZXP/Whats-App-Image-2026-02-19-at-10-51-09-(3).jpg" alt="Croazia - 4">
+        <img loading="lazy" src="https://i.postimg.cc/zXbN92yr/Whats-App-Image-2026-02-19-at-10-51-09-(4).jpg" alt="Croazia - 5">
       </div>
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
@@ -314,6 +318,7 @@
         <img loading="lazy" src="https://i.postimg.cc/G3T9Dvsr/Whats-App-Image-2026-02-02-at-08-23-05-(1).jpg" alt="Malta 2023 - 2">
         <img loading="lazy" src="https://i.postimg.cc/BbF6GGGQ/Whats-App-Image-2026-02-02-at-08-23-05-(2).jpg" alt="Malta 2023 - 3">
         <img loading="lazy" src="https://i.postimg.cc/ryRz45t6/Whats-App-Image-2026-02-02-at-08-23-05-(3).jpg" alt="Malta 2023 - 4">
+          <img loading="lazy" src="https://i.postimg.cc/hvVkt6Tp/Whats-App-Image-2026-02-19-at-10-51-45.jpg" alt="Malta 2023 - 5">
       </div>
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
@@ -365,6 +370,8 @@
         <img loading="lazy" src="https://i.postimg.cc/7ZTdSwfg/Whats-App-Image-2026-01-26-at-09-46-23-(2).jpg" alt="USA 2017 - 6">
         <img loading="lazy" src="https://i.postimg.cc/GmsVvdHz/Whats-App-Image-2026-01-26-at-09-46-23-(3).jpg" alt="USA 2017 - 7">
         <img loading="lazy" src="https://i.postimg.cc/3xDV2Ydq/Whats-App-Image-2026-01-26-at-09-46-24.jpg" alt="USA 2017 - 8">
+        <img loading="lazy" src="https://i.postimg.cc/DwpMnnRz/Whats-App-Image-2026-02-19-at-10-50-21.jpg " alt="USA 2017 - 9">
+        <img loading="lazy" src="https://i.postimg.cc/vHqz6Xh9/Whats-App-Image-2026-02-19-at-10-50-21.jpg" alt="USA 2017 - 10">
       </div>
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
