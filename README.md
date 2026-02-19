@@ -46,7 +46,7 @@
 
     /* Container */
     .container{
-      width: min(1480px, 96vw);
+      width: min(1480px, 53vw);
       margin: auto;
       padding: 28px;
       position: relative;
