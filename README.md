@@ -268,12 +268,21 @@
       <button data-target="usa">USA 2017</button>
       <button data-target="marocco">Marocco 2010</button>
       <button data-target="tunisia">Tunisia 2008</button>
+       <button data-target="croazia">Croazia</button>
     </div>
 
     <div id="sardegna" class="section">
       <h2>Sardegna 2025</h2>
       <p>In attesa delle foto.</p>
       <div class="gallery"></div>
+      <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
+    </div>
+
+    <div id="croazia" class="section">
+      <h2>Croazia</h2>
+      <div class="gallery">
+       <img loading="lazy" src="https://i.postimg.cc/2jL3WnBY/Whats-App-Image-2026-02-02-at-08-23-05.jpg" alt="Croazia - 1">
+      </div>
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
 
