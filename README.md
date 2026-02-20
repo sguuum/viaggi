@@ -264,6 +264,8 @@
       <button data-target="malta">Malta 2023</button>
       <button data-target="polonia">Polonia 2022</button>
       <button data-target="barcellona">Barcellona 2022</button>
+      <button data-target="marocco2021">Marocco 2021</button>
+      <button data-target="roma2021">Roma 2021</button>
       <button data-target="messico">Cuba – Messico 2019</button>
       <button data-target="usa">USA 2017</button>
       <button data-target="marocco">Marocco 2010</button>
@@ -306,8 +308,11 @@
 
     <div id="marocco2024" class="section">
       <h2>Marocco 2024</h2>
-      <p>In attesa delle foto.</p>
       <div class="gallery"></div>
+        <img loading="lazy" src="https://i.postimg.cc/SNGygJjh/Whats-App-Image-2026-02-19-at-21-46-20.jpg" alt="Marocco 2024 - 1">
+        <img loading="lazy" src="https://i.postimg.cc/m2SbmthG/Whats-App-Image-2026-02-19-at-21-46-20-(1).jpg" alt="Marocco 2024  - 2">
+        <img loading="lazy" src="https://i.postimg.cc/Nfxgd5FV/Whats-App-Image-2026-02-19-at-21-46-20-(2).jpg " alt="Marocco 2024  - 3">
+      
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
 
@@ -318,7 +323,9 @@
         <img loading="lazy" src="https://i.postimg.cc/G3T9Dvsr/Whats-App-Image-2026-02-02-at-08-23-05-(1).jpg" alt="Malta 2023 - 2">
         <img loading="lazy" src="https://i.postimg.cc/BbF6GGGQ/Whats-App-Image-2026-02-02-at-08-23-05-(2).jpg" alt="Malta 2023 - 3">
         <img loading="lazy" src="https://i.postimg.cc/ryRz45t6/Whats-App-Image-2026-02-02-at-08-23-05-(3).jpg" alt="Malta 2023 - 4">
-          <img loading="lazy" src="https://i.postimg.cc/hvVkt6Tp/Whats-App-Image-2026-02-19-at-10-51-45.jpg" alt="Malta 2023 - 5">
+        <img loading="lazy" src="https://i.postimg.cc/hvVkt6Tp/Whats-App-Image-2026-02-19-at-10-51-45.jpg" alt="Malta 2023 - 5">
+        <img loading="lazy" src="https://i.postimg.cc/jj0ZCdQb/Whats-App-Image-2026-02-19-at-21-47-26.jpg " alt="Malta 2023 - 6">
+        <img loading="lazy" src="https://i.postimg.cc/TPMChYqw/Whats-App-Image-2026-02-19-at-21-47-26-(1).jpg" alt="Malta 2023 - 7">
       </div>
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
@@ -332,10 +339,33 @@
 
     <div id="barcellona" class="section">
       <h2>Barcellona 2022</h2>
-      <p>In attesa delle foto.</p>
       <div class="gallery"></div>
+       <img loading="lazy" src="https://i.postimg.cc/LsxYwxsN/Whats-App-Image-2026-02-19-at-21-59-48.jpg " alt="Barcellona 2022 - 1"> 
+       <img loading="lazy" src="https://i.postimg.cc/bvmDWmvH/Whats-App-Image-2026-02-19-at-21-59-49.jpg" alt="Barcellona 2022 - 2"> 
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
+
+
+ <div id="marocco2021" class="section">
+      <h2>Marocco 2021</h2>
+      <div class="gallery">
+       <img loading="lazy" src="https://i.postimg.cc/xCFfy7dr/Whats-App-Image-2026-02-19-at-10-53-06.jpg" alt="Marocco 2021 - 1"> 
+       <img loading="lazy" src="https://i.postimg.cc/sX0j98gk/Whats-App-Image-2026-02-19-at-10-53-06-(1).jpg" alt="Marocco 2021 - 2">
+       <img loading="lazy" src="https://i.postimg.cc/3RwrG73Q/Whats-App-Image-2026-02-19-at-10-53-11.jpg " alt="Marocco 2021 - 3">
+      </div>
+      <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
+    </div>
+
+        <div id="roma2021" class="section">
+      <h2>Roma 2021</h2>
+      <div class="gallery"></div>
+       <img loading="lazy" src="https://i.postimg.cc/XqjjwCdS/Whats-App-Image-2026-02-19-at-22-11-38.jpg " alt="Roma 2021 - 1">
+       <img loading="lazy" src="https://i.postimg.cc/k4FM6cVx/Whats-App-Image-2026-02-19-at-22-13-16.jpg" alt="Roma 2021 - 2">
+       <img loading="lazy" src="https://i.postimg.cc/8cpph6W3/Whats-App-Image-2026-02-19-at-22-13-16-(1).jpg  " alt="Roma 2021 - 3">
+       <img loading="lazy" src="https://i.postimg.cc/HnYYQy5N/Whats-App-Image-2026-02-19-at-22-13-16-(2).jpg" alt="Roma 2021 - 4">
+      <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
+    </div>
+    
 
     <div id="messico" class="section">
       <h2>Cuba – Messico 2019</h2>
