@@ -262,7 +262,7 @@
       <button data-target="toscana">Toscana 2025</button>
       <button data-target="marocco2024">Marocco 2024</button>
       <button data-target="malta">Malta 2023</button>
-      <button data-target="liguria 2023">Liguria 2023</button>
+      <button data-target="liguria2023">Liguria 2023</button>
       <button data-target="polonia">Polonia 2022</button>
       <button data-target="barcellona">Barcellona 2022</button>
       <button data-target="marocco2021">Marocco 2021</button>
