@@ -262,6 +262,7 @@
       <button data-target="toscana">Toscana 2025</button>
       <button data-target="marocco2024">Marocco 2024</button>
       <button data-target="malta">Malta 2023</button>
+      <button data-target="liguaria 2023">Liguria 2023</button>
       <button data-target="polonia">Polonia 2022</button>
       <button data-target="barcellona">Barcellona 2022</button>
       <button data-target="marocco2021">Marocco 2021</button>
@@ -329,6 +330,15 @@
       </div>
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
+    
+    <div id="liguaria 2023" class="section">
+      <h2>Liguaria 2023</h2>
+      <div class="gallery">
+        scrvimi il video 
+      </div>
+      <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
+    </div>
+       
 
     <div id="polonia" class="section">
       <h2>Polonia 2022</h2>
@@ -342,6 +352,9 @@
       <div class="gallery"></div>
        <img loading="lazy" src="https://i.postimg.cc/LsxYwxsN/Whats-App-Image-2026-02-19-at-21-59-48.jpg " alt="Barcellona 2022 - 1"> 
        <img loading="lazy" src="https://i.postimg.cc/bvmDWmvH/Whats-App-Image-2026-02-19-at-21-59-49.jpg" alt="Barcellona 2022 - 2"> 
+       <img loading="lazy" src="https://i.postimg.cc/1R8sZsBT/Whats-App-Image-2026-02-19-at-22-15-17.jpg  " alt="Barcellona 2022 - 3"> 
+       <img loading="lazy" src="https://i.postimg.cc/CMRSVS7j/Whats-App-Image-2026-02-19-at-22-15-17-(1).jpg" alt="Barcellona 2022 - 4"> 
+       <img loading="lazy" src="https://i.postimg.cc/L4J2M2DW/Whats-App-Image-2026-02-19-at-22-15-17-(2).jpg " alt="Barcellona 2022 - 5"> 
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
 
