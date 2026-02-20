@@ -262,7 +262,7 @@
       <button data-target="toscana">Toscana 2025</button>
       <button data-target="marocco2024">Marocco 2024</button>
       <button data-target="malta">Malta 2023</button>
-      <button data-target="liguaria 2023">Liguria 2023</button>
+      <button data-target="liguria 2023">Liguria 2023</button>
       <button data-target="polonia">Polonia 2022</button>
       <button data-target="barcellona">Barcellona 2022</button>
       <button data-target="marocco2021">Marocco 2021</button>
@@ -337,7 +337,6 @@
   <div class="gallery">
     <video controls style="width:100%; max-width:800px; display:block; margin:auto; border-radius:12px;">
       <source src="liguria2023.mp4" type="video/mp4">
-      Il tuo browser non supporta il video.
     </video>
   </div>
 
