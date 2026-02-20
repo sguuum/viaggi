@@ -331,14 +331,20 @@
       <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
     </div>
     
-    <div id="liguaria 2023" class="section">
-      <h2>Liguaria 2023</h2>
-      <div class="gallery">
-        scrvimi il video 
-      </div>
-      <div style="text-align:center"><button class="back" type="button">TORNA AI VIAGGI</button></div>
-    </div>
-       
+   <div id="liguria2023" class="section">
+  <h2>Liguria 2023</h2>
+
+  <div class="gallery">
+    <video controls style="width:100%; max-width:800px; display:block; margin:auto; border-radius:12px;">
+      <source src="liguria2023.mp4" type="video/mp4">
+      Il tuo browser non supporta il video.
+    </video>
+  </div>
+
+  <div style="text-align:center">
+    <button class="back" type="button">TORNA AI VIAGGI</button>
+  </div>
+</div>
 
     <div id="polonia" class="section">
       <h2>Polonia 2022</h2>
